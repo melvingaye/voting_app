@@ -9,6 +9,8 @@ class ProductList extends React.Component{
         this.state = {
             products: [],
         };
+
+        this.handleUpVote = this.handleUpVote.bind(this);
     }
 
     componentDidMount(){
@@ -30,7 +32,7 @@ class ProductList extends React.Component{
 
     render(){
         this.state.products.sort((a, b)=>(b.votes - a.votes));
-        const productComponentsList = products.map((product)=>(
+        const productComponentsList = this.state.products.map((product)=>(
             <Product
             key={'product-'+product.id}
             id={product.id}
